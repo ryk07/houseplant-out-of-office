@@ -12,15 +12,18 @@ is now its emergency contact. The office frame ("Out of office",
 
 import os
 
+# The gate's cap for this competition: 1 to 120 characters.
+MAX_CHARS = 120
+
 ENTRY = (
     "Out of office until someone waters me. "
     "Last drink: March. "
     "My roots have unionised \u2014 the dust is my emergency contact."
 )
 
-# The gate refuses anything over 120 characters, so enforce the cap here
-# rather than discovering it on the server.
-assert 1 <= len(ENTRY) <= 120, "entry line must be 1-120 characters"
+# The gate refuses anything over the cap, so enforce it here rather
+# than discovering it on the server.
+assert 1 <= len(ENTRY) <= MAX_CHARS, "entry line must be 1-120 characters"
 
 
 def main():
